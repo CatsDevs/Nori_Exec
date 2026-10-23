@@ -106,7 +106,7 @@ public:
     static std::string base64decode(const std::string& input) {
         static constexpr unsigned char invalid = 0xFF;
         static const auto table = [] {
-            std::vector<unsigned char> t(256, invalid);
+            std::vector<unsigned char> t(256, static_cast<unsigned char>(0xFF));
             const std::string chars =
                 "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
             for (std::size_t i = 0; i < chars.size(); ++i)
