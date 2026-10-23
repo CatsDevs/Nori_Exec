@@ -32,3 +32,15 @@ This is a foundation, not a drop-in Roblox executor and not a claim of UNC/sUNC 
 - `src/main.cpp` — sandboxed utility API and small demo.
 - `CMakeLists.txt` — build and test configuration.
 - `.github/workflows/build.yml` — Windows CI.
+
+## Utility APIs currently implemented
+
+- Workspace-scoped files: `readfile`, `writefile`, `appendfile`, `isfile`, `isfolder`, `listfiles`, `makefolder`, `delfile`, `delfolder`.
+- File helpers: `getfilesize`, `copyfile`, `renamefile`.
+- Shared standalone key/value environment: `getgenv()`.
+- Encoding: `base64encode`, `base64decode`.
+- Console: `rconsoleprint`, `rconsoleclear`, `rconsoleinfo`, `rconsolewarn`, `rconsoleerr`.
+- Metadata: `identifyexecutor`, `getexecutorname`, `getexecutorversion`.
+- Windows clipboard: `getclipboard`, `setclipboard`.
+
+These are C++ utility methods, not yet registered as Luau globals. Clipboard methods are Windows-only. The self-test covers basic file operations, environment storage, Base64 round-tripping, and path traversal rejection.
