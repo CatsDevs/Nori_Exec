@@ -89,7 +89,8 @@ public:
         static constexpr char alphabet[] =
             "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
         std::string out;
-        int val = 0, bits = -6;
+        unsigned int val = 0;
+        int bits = -6;
         for (unsigned char c : input) {
             val = (val << 8) | c;
             bits += 8;
@@ -115,7 +116,8 @@ public:
         }();
 
         std::string out;
-        int val = 0, bits = -8;
+        unsigned int val = 0;
+        int bits = -8;
         for (unsigned char c : input) {
             if (c == '=') break;
             if (std::isspace(c)) continue;
